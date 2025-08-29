@@ -1,228 +1,159 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mega Relógios - Tecnologia do Futuro</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background: #ffffff;
-            color: #333;
-            text-align: center;
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: left;
-            padding: 30px;
-            background: #fff;
-        }
-
-        .logo {
-            width: 300px;
-            height: auto;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 50px auto;
-            background: #f8f8f8;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #d32f2f;
-            font-size: 36px;
-            margin-top: 20px;
-        }
-
-        p {
-            color: #555;
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        img {
-            width: 100%;
-            max-width: 1200px;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .benefits {
-            text-align: left;
-            padding: 20px;
-        }
-
-        .benefits h2 {
-            color: #d32f2f;
-        }
-
-        .benefits li {
-            list-style: none;
-            font-size: 18px;
-            margin: 10px 0;
-            color: #444;
-        }
-
-        .cta {
-            background: #d32f2f;
-            color: white;
-            border: none;
-            padding: 15px 20px;
-            margin-top: 20px;
-            cursor: pointer;
-            font-size: 20px;
-            border-radius: 5px;
-            text-transform: uppercase;
-            transition: 0.3s;
-            box-shadow: 0 0 10px rgba(211, 47, 47, 0.6);
-        }
-
-        .cta:hover {
-            background: #b71c1c;
-            box-shadow: 0 0 15px rgba(183, 28, 28, 1);
-        }
-
-        input {
-            width: 80%;
-            padding: 12px;
-            margin-top: 10px;
-            border: 2px solid #d32f2f;
-            border-radius: 5px;
-            font-size: 18px;
-            background: #fff;
-            color: #333;
-            text-align: center;
-        }
-
-        input::placeholder {
-            color: #888;
-        }
-
-        .testimonials, .clients, .social-proof {
-            margin-top: 50px;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .testimonials h2, .clients h2, .social-proof h2 {
-            color: #d32f2f;
-            margin-bottom: 20px;
-        }
-
-        .testimonial {
-            background: #f8f8f8;
-            padding: 15px;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .stars {
-            color: #f4c542;
-            font-size: 20px;
-        }
-
-        .clients img {
-            width: 150px;
-            margin: 10px;
-        }
-
-        footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #777;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conversor Wiegand → Hexadecimal</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #f9f9f9;
+      --text: #222222;
+      --accent: #b40000;
+      --muted: #555555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      line-height: 1.4;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    header img {
+      max-height: 60px;
+      height: auto;
+      width: auto;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-size: 1.8em;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      margin-top: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #900000;
+    }
+    .output {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 10px;
+      margin-top: 15px;
+      font-family: monospace;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <img src="logotipo.png" alt="Logo Mega">
+  </header>
+  <div class="container">
+    <h1>Conversor Wiegand → Hexadecimal</h1>
 
-    <div class="header">
-    <a href="https://www.megarelogios.com.br/">
-        <img src="https://www.megarelogios.com.br/wp-content/uploads/2017/04/logotipo.png" alt="Mega Relógios" class="logo"></a>
+    <label for="preset">Layout</label>
+    <select id="preset">
+      <option value="26">Wiegand 26 (8 bits FC + 16 bits CN)</option>
+      <option value="34">Wiegand 34 (16 bits FC + 16 bits CN)</option>
+      <option value="custom">Personalizado</option>
+    </select>
+
+    <label for="fc">Area (os 3 primeiros digitos antes da virgula)</label>
+    <input type="number" id="fc" placeholder="Ex.: 10">
+
+    <label for="cn">Codigo (os 5 ultimos digitos depois da virgula)</label>
+    <input type="number" id="cn" placeholder="Ex.: 12345">
+
+    <div id="customFields" style="display:none;">
+      <label for="fcBits">Bits do Facility</label>
+      <input type="number" id="fcBits" value="8">
+      <label for="cnBits">Bits do Card</label>
+      <input type="number" id="cnBits" value="16">
     </div>
 
-    <div class="container">
-        <h1>Relógios de Ponto do Futuro</h1>
-        <p>A mais avançada tecnologia de reconhecimento facial para controle de ponto.</p>
+    <button onclick="converter()">Converter</button>
 
-        <a href="https://www.megarelogios.com.br/controle-de-acesso-facial-henry-face01/">
-        <img src="https://www.megarelogios.com.br/wp-content/uploads/2024/11/Banner-Home-LeitorFacial-v2.png"></a>
-<br><br>
-        <div class="benefits">
-            <h2>Por que escolher o <b>HENRY FACE</b>?</h2>
-            <ul>
-                <li>📷 <b>Reconhecimento facial ultra-rápido</b></li>
-                <li>📊 <b>Controle de ponto 100% digital e seguro</b></li>
-                <li>☁️ <b>Software com Armazenamento em Nuvem e Backup Automático</b></li>
-                <li>📱 <b>Aplicativos de Gestão e Registro de Ponto</b></li>
-                <li>📧 <b>Envio Automático do Comprovante por E-mail</b></li>
-                <li>🔒 <b>Segurança Antifraude com Inteligência Artificial</b></li>
-                <li>⚡ <b>Integração Perfeita com Sistemas de RH</b></li>
-            </ul>
-        </div>
+    <div id="resultado" class="output" style="display:none;"></div>
+  </div>
 
-        <div class="testimonials">
-            <h2>O que nossos clientes dizem</h2>
-            <div class="testimonial">
-                <p>"A Mega Relógios transformou nosso controle de ponto! Fácil de usar e super seguro."</p>
-                <span class="stars">★★★★★</span> - Carlos Mendes, RH da Empresa X
-            </div>
-            <div class="testimonial">
-                <p>"Reduzimos 40% do tempo gasto com controle de jornada. Super recomendo!"</p>
-                <span class="stars">★★★★★</span> - Ana Souza, Gerente de RH
-            </div>
-        </div>
+  <script>
+    const preset = document.getElementById('preset');
+    const customFields = document.getElementById('customFields');
+    const resultado = document.getElementById('resultado');
 
-        <div class="clients">
-            <h2>Empresas que confiam em nós</h2>
-            <img src="https://fia.com.br/wp-content/uploads/2018/04/logo-fundacao-fia.png" alt="Fundação Instituto de Administração">
-            <img src="https://www.grbsf.com.br/assets/png/icones/logo.png" alt="GRB">
-            <img src="https://usinacoprodia.com.br/uploads/coprodia.png" alt="Coprodia">
-            <img src="https://www.barbosasupermercados.com.br/clients/barbosa/logo.svg" alt="Barbosa Supermercados">
-        </div>
+    preset.addEventListener('change', () => {
+      customFields.style.display = preset.value === 'custom' ? 'block' : 'none';
+    });
 
-        <div class="social-proof">
-            <h2>Provas Sociais</h2>
-            <p>✅ <b>+50.000 colaboradores utilizam nosso sistema diariamente</b></p>
-            <p>✅ <b>Média de 4.9⭐ no Google com mais de 500 avaliações</b></p>
-        </div>
+    function converter() {
+      let fc = parseInt(document.getElementById('fc').value) || 0;
+      let cn = parseInt(document.getElementById('cn').value) || 0;
+      let fcBits = preset.value === '34' ? 16 : 8;
+      let cnBits = 16;
 
-        <p><b>Entre em contato e solicite um orçamento!</b></p>
-        <input type="text" id="nome" placeholder="Digite seu nome" required>
-        <button class="cta" onclick="enviarWhatsApp()">Fale pelo WhatsApp</button>
+      if (preset.value === 'custom') {
+        fcBits = parseInt(document.getElementById('fcBits').value) || 0;
+        cnBits = parseInt(document.getElementById('cnBits').value) || 0;
+      }
 
-        <footer>
-            <p>© 2025 Mega Relógios - Todos os direitos reservados.</p>
-        </footer>
-    </div>
+      const combined = (fc << cnBits) + cn;
+      const hex = combined.toString(16).toUpperCase().padStart(Math.ceil((fcBits+cnBits)/4), '0');
 
-    <script>
-        function enviarWhatsApp() {
-            let nome = document.getElementById("nome").value;
-            if (nome.trim() === "") {
-                alert("Por favor, digite seu nome.");
-                return;
-            }
-            let mensagem = encodeURIComponent(`Olá, meu nome é ${nome}. Gostaria de mais informações.`);
-            let telefone = "5511979654420";
-            window.open(`https://wa.me/${telefone}?text=${mensagem}`, "_blank");
-        }
-    </script>
-
+      resultado.style.display = 'block';
+      resultado.innerHTML = `
+        <strong>Resultado que deve ser lançado no campo RFID:</strong><br>
+        Decimal: ${combined}<br>
+        Bits totais: ${fcBits+cnBits}
+      `;
+    }
+  </script>
 </body>
 </html>
